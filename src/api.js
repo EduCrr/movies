@@ -63,62 +63,62 @@ export default {
     return info;
   },
 
-  getFilmesList: async () => {
+  getFilmesList: async (page = 1) => {
     return [
       {
         slug: "action",
         title: "Ação",
         items: await basicFetch(
-          `/discover/movie?with_genres=28&language=pt-BR&api_key=${API_KEY}`
+          `/discover/movie?with_genres=28&language=pt-BR&api_key=${API_KEY}&page=${page}`
         ),
       },
       {
         slug: "adventure",
         title: "Aventura",
         items: await basicFetch(
-          `/discover/movie?with_genres=12&language=pt-BR&api_key=${API_KEY}`
+          `/discover/movie?with_genres=12&language=pt-BR&api_key=${API_KEY}&page=${page}`
         ),
       },
       {
         slug: "romance",
         title: "Romance",
         items: await basicFetch(
-          `/discover/movie?with_genres=10749&language=pt-BR&api_key=${API_KEY}`
+          `/discover/movie?with_genres=10749&language=pt-BR&api_key=${API_KEY}&page=${page}`
         ),
       },
       {
         slug: "drama",
         title: "Drama",
         items: await basicFetch(
-          `/discover/movie?with_genres=18&language=pt-BR&api_key=${API_KEY}`
+          `/discover/movie?with_genres=18&language=pt-BR&api_key=${API_KEY}&page=${page}`
         ),
       },
       {
         slug: "comedy",
         title: "Comédia",
         items: await basicFetch(
-          `/discover/movie?with_genres=35&language=pt-BR&api_key=${API_KEY}`
+          `/discover/movie?with_genres=35&language=pt-BR&api_key=${API_KEY}&page=${page}`
         ),
       },
       {
         slug: "sciencefiction",
         title: "Ficção científica",
         items: await basicFetch(
-          `/discover/movie?with_genres=878&language=pt-BR&api_key=${API_KEY}`
+          `/discover/movie?with_genres=878&language=pt-BR&api_key=${API_KEY}&page=${page}`
         ),
       },
       {
         slug: "war",
         title: "Guerra",
         items: await basicFetch(
-          `/discover/movie?with_genres=10752&language=pt-BR&api_key=${API_KEY}`
+          `/discover/movie?with_genres=10752&language=pt-BR&api_key=${API_KEY}&page=${page}`
         ),
       },
       {
         slug: "horror",
         title: "Terror",
         items: await basicFetch(
-          `/discover/movie?with_genres=27&language=pt-BR&api_key=${API_KEY}`
+          `/discover/movie?with_genres=27&language=pt-BR&api_key=${API_KEY}&page=${page}`
         ),
       },
     ];
