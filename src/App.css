@@ -1,4 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&display=swap");
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #ff0066 #16151d;
+  border-radius: 9999px;
+}
+
+html ::-webkit-scrollbar {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  width: 0.6vw;
+}
+
+html ::-webkit-scrollbar-thumb {
+  background-color: #ff0066;
+  background-clip: padding-box;
+  border-radius: 9999px;
+}
+
+html ::-webkit-scrollbar-track {
+  background-color: #16151d;
+}
+
 body {
   background-color: #16151d;
   font-family: "Hind Siliguri", sans-serif;
@@ -27,5 +50,3 @@ a {
 ul {
   list-style-type: none;
 }
-
-

@@ -31,7 +31,7 @@ export default function Header() {
             <Link to="/">Cartoons</Link>
           </li>
           <li>
-            <Link to="/">Conta</Link>
+            <Link to="/">Favoritos</Link>
           </li>
         </ul>
       </div>

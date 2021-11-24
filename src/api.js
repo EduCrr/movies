@@ -12,7 +12,7 @@ export default {
     return [
       {
         slug: "popular",
-        title: "Popular",
+        title: "Populares",
         items: await basicFetch(
           ///movie/popular?api_key=<<api_key>>&language=en-US
           `/movie/popular?language=pt-BR&api_key=${API_KEY}`
@@ -33,10 +33,24 @@ export default {
         ),
       },
       {
+        slug: "comedy",
+        title: "Comédia",
+        items: await basicFetch(
+          `/discover/movie?with_genres=35&language=pt-BR&api_key=${API_KEY}`
+        ),
+      },
+      {
         slug: "horror",
         title: "Terror",
         items: await basicFetch(
           `/discover/movie?with_genres=27&language=pt-BR&api_key=${API_KEY}`
+        ),
+      },
+      {
+        slug: "upcoming",
+        title: "Lançamentos",
+        items: await basicFetch(
+          `/movie/upcoming?language=pt-BR&api_key=${API_KEY}`
         ),
       },
     ];
@@ -44,7 +58,7 @@ export default {
   getMovieInfo: async (movieId) => {
     let info = {};
     info = await basicFetch(
-      `/movie/${movieId}?language=pt-BR&api_key=${API_KEY} `
+      `/movie/${movieId}?language=pt-BR&api_key=${API_KEY}&page=1 `
     );
 
     return info;

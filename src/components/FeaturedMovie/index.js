@@ -19,7 +19,7 @@ export default function FeaturedMovie({ data }) {
     >
       <div className="featuredVertical">
         <div className="infoList">
-          <div className="title">{data.original_title}</div>
+          <div className="title">{data.title}</div>
           <div className="details">
             <div className="infoLeft">
               <div className="featuredYear">
