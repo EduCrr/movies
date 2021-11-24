@@ -8,7 +8,7 @@ export default function Header() {
     <HeaderArea>
       <div className="headerLogo">
         <a href="/">
-          <h1>Charlie</h1>
+          <h1>E-Movie</h1>
         </a>
       </div>
       <div className="headerMenu">
@@ -22,7 +22,7 @@ export default function Header() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/">Filmes</Link>
+            <Link to="/filmes">Filmes</Link>
           </li>
           <li>
             <Link to="/">TV Series</Link>

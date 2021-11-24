@@ -2,16 +2,16 @@ import styled from "styled-components";
 
 export const FooterArea = styled.footer`
   max-width: 1100px;
-  margin: auto;
+  margin: 5rem auto 3rem auto;
+
   hr {
     border-color: #acacac;
     opacity: 0.3;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
   .content {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2rem;
   }
   .content,
   ul,
@@ -20,6 +20,17 @@ export const FooterArea = styled.footer`
   }
   ul,
   a {
-    margin-right: 10px;
+    margin-right: 25px;
+    transition: all ease 0.4s;
+
+    &:hover {
+      color: #ff0066;
+    }
+  }
+  .footerInfo {
+    strong {
+      color: white;
+    }
+    color: #ff0066;
   }
 `;

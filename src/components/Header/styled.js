@@ -33,7 +33,7 @@ export const HeaderArea = styled.header`
       }
     }
     ul li {
-      margin: 0px 25px;
+      margin: 0px 0px 0px 35px;
     }
     ul a {
       transition: all ease 0.4s;

@@ -14,7 +14,6 @@ export default {
         slug: "popular",
         title: "Populares",
         items: await basicFetch(
-          ///movie/popular?api_key=<<api_key>>&language=en-US
           `/movie/popular?language=pt-BR&api_key=${API_KEY}`
         ),
       },
@@ -63,4 +62,67 @@ export default {
 
     return info;
   },
+
+  getFilmesList: async () => {
+    return [
+      {
+        slug: "action",
+        title: "Ação",
+        items: await basicFetch(
+          `/discover/movie?with_genres=28&language=pt-BR&api_key=${API_KEY}`
+        ),
+      },
+      {
+        slug: "adventure",
+        title: "Aventura",
+        items: await basicFetch(
+          `/discover/movie?with_genres=12&language=pt-BR&api_key=${API_KEY}`
+        ),
+      },
+      {
+        slug: "romance",
+        title: "Romance",
+        items: await basicFetch(
+          `/discover/movie?with_genres=10749&language=pt-BR&api_key=${API_KEY}`
+        ),
+      },
+      {
+        slug: "drama",
+        title: "Drama",
+        items: await basicFetch(
+          `/discover/movie?with_genres=18&language=pt-BR&api_key=${API_KEY}`
+        ),
+      },
+      {
+        slug: "comedy",
+        title: "Comédia",
+        items: await basicFetch(
+          `/discover/movie?with_genres=35&language=pt-BR&api_key=${API_KEY}`
+        ),
+      },
+      {
+        slug: "sciencefiction",
+        title: "Ficção científica",
+        items: await basicFetch(
+          `/discover/movie?with_genres=878&language=pt-BR&api_key=${API_KEY}`
+        ),
+      },
+      {
+        slug: "war",
+        title: "Guerra",
+        items: await basicFetch(
+          `/discover/movie?with_genres=10752&language=pt-BR&api_key=${API_KEY}`
+        ),
+      },
+      {
+        slug: "horror",
+        title: "Terror",
+        items: await basicFetch(
+          `/discover/movie?with_genres=27&language=pt-BR&api_key=${API_KEY}`
+        ),
+      },
+    ];
+  },
 };
+
+//genre https://api.themoviedb.org/3/genre/movie/list?api_key=57fa556e7273f4df37aa912447616832&language=en-US
