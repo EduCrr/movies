@@ -19,4 +19,19 @@ export const CategoriesArea = styled.div`
     padding: 20px;
     text-align: center;
   }
+  .btn {
+    text-align: center;
+    button {
+      background-color: #ff0066;
+      border: none;
+      outline: 0;
+      padding: 18px 40px;
+      color: white;
+      border-radius: 4%;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 15px;
+    }
+  }
 `;

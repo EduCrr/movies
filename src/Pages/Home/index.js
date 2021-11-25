@@ -33,6 +33,7 @@ export default function Home() {
       let primaryList = listHome.filter(
         (item) => item.slug === "popular" || item.slug === "toprated"
       );
+      console.log(primaryList);
       setMovieHome(primaryList);
     };
 

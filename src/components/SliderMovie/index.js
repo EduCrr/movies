@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { SliderMovieArea } from "./styled";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import api from "../../api";
+import { Link } from "react-router-dom";
 export default function SliderMovie({ data, noSlider }) {
-  console.log(data);
-
   const handleDragStart = (e) => e.preventDefault();
   const items =
     data.items.results.length > 0 &&
@@ -16,7 +14,9 @@ export default function SliderMovie({ data, noSlider }) {
           src={`https://image.tmdb.org/t/p/w300/${item.poster_path}`}
           alt={item.original_name}
         />
-        <div className="title">{item.title}</div>
+        <Link to={`/filme/${item.id}`}>
+          <div className="title">{item.title}</div>
+        </Link>
         <div className="infoSlider">
           <span>Data: {item.release_date}</span>
           <span>
@@ -60,7 +60,9 @@ export default function SliderMovie({ data, noSlider }) {
                     alt={item.original_name}
                   />
                   <div className="infos">
-                    <div className="title">{item.title}</div>
+                    <Link to={`/filme/${item.id}`}>
+                      <div className="title">{item.title}</div>
+                    </Link>
                     <div className="infoSlider">
                       <span>Data: {item.release_date}</span>
                       <span>

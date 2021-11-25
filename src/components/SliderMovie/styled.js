@@ -44,20 +44,6 @@ export const SliderMovieArea = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-
-    button {
-      margin: 20px auto;
-      background-color: #ff0066;
-      border: none;
-      outline: 0;
-      padding: 18px 40px;
-      color: white;
-      border-radius: 4%;
-      cursor: pointer;
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 15px;
-    }
   }
   .normal {
     width: 25%;

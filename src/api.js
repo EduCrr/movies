@@ -57,10 +57,27 @@ export default {
   getMovieInfo: async (movieId) => {
     let info = {};
     info = await basicFetch(
-      `/movie/${movieId}?language=pt-BR&api_key=${API_KEY}&page=1 `
+      `/movie/${movieId}?language=pt-BR&api_key=${API_KEY} `
     );
 
     return info;
+  },
+  getSimilarMovie: async (movieId) => {
+    return [
+      {
+        slug: "similar",
+        title: "Similares",
+        items: await basicFetch(
+          `/movie/${movieId}/similar?language=pt-BR&api_key=${API_KEY} `
+        ),
+      },
+    ];
+  },
+  getMovieActors: async (movieId) => {
+    let actors = await basicFetch(
+      `/movie/${movieId}/credits?language=pt-BR&api_key=${API_KEY}`
+    );
+    return actors;
   },
 
   getFilmesList: async (page = 1) => {

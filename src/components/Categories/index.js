@@ -37,8 +37,10 @@ export default function Categories() {
     setListMovies([]);
     const singleMovie = await api.getFilmesList();
     const movieFilter = singleMovie.filter((item) => item.slug === slug);
+    console.log(movieFilter);
     setListMovieSingle(movieFilter);
     setSlugH(slug);
+    setPage(2);
   }
   const responsive = {
     0: { items: 1 },
@@ -58,7 +60,6 @@ export default function Categories() {
     setPage(page + 1);
     const listFilmes = await api.getFilmesList(page);
     let filterList = listFilmes.filter((item) => item.slug === slugH);
-    console.log(filterList);
     setListMovieSingle([...listMovieSingle, ...filterList]);
   }
   return (
@@ -81,6 +82,7 @@ export default function Categories() {
           ))}
         </>
       )}
+
       {listMovieSingle && (
         <>
           {listMovieSingle.map((item, k) => (
@@ -89,7 +91,9 @@ export default function Categories() {
         </>
       )}
       {listMovieSingle !== null && (
-        <button onClick={handlePage}>Carregar mais</button>
+        <div className="btn">
+          <button onClick={handlePage}>Carregar mais</button>
+        </div>
       )}
     </CategoriesArea>
   );
