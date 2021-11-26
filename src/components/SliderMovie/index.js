@@ -3,7 +3,7 @@ import { SliderMovieArea } from "./styled";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { Link } from "react-router-dom";
-export default function SliderMovie({ data, noSlider }) {
+export default function SliderMovie({ data, noSlider, serie }) {
   const handleDragStart = (e) => e.preventDefault();
   const items =
     data.items.results.length > 0 &&
@@ -14,11 +14,11 @@ export default function SliderMovie({ data, noSlider }) {
           src={`https://image.tmdb.org/t/p/w300/${item.poster_path}`}
           alt={item.original_name}
         />
-        <Link to={`/filme/${item.id}`}>
-          <div className="title">{item.title}</div>
+        <Link to={serie ? `/serie/${item.id}` : `/filme/${item.id}`}>
+          <div className="title">{serie ? item.name : item.title}</div>
         </Link>
         <div className="infoSlider">
-          <span>Data: {item.release_date}</span>
+          <span>Data: {serie ? item.first_air_date : item.release_date}</span>
           <span>
             <span style={{ color: "#ff0066", fontWeight: "bold" }}>IMDb:</span>{" "}
             {item.vote_average}
@@ -61,10 +61,14 @@ export default function SliderMovie({ data, noSlider }) {
                   />
                   <div className="infos">
                     <Link to={`/filme/${item.id}`}>
-                      <div className="title">{item.title}</div>
+                      <div className="title">
+                        {serie ? item.name : item.title}
+                      </div>
                     </Link>
                     <div className="infoSlider">
-                      <span>Data: {item.release_date}</span>
+                      <span>
+                        Data: {serie ? item.first_air_date : item.release_date}
+                      </span>
                       <span>
                         <span style={{ color: "#ff0066", fontWeight: "bold" }}>
                           IMDb:
@@ -72,6 +76,7 @@ export default function SliderMovie({ data, noSlider }) {
                         {item.vote_average}
                       </span>
                     </div>
+                    {serie && <br />}
                   </div>
                 </div>
               ))}

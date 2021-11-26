@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import api from "../../api";
-import { FilmesArea } from "./styled";
+import { SerieArea } from "./styled";
 import FeaturedMovie from "../../components/FeaturedMovie";
-import Categories from "../../components/Categories";
-export default function Filmes() {
+import CategoriesSeries from "../../components/CategoriesSeries";
+export default function Series() {
   const [list, setList] = useState({});
 
   async function loadSingleMovie(list, type, setType) {
@@ -19,7 +19,7 @@ export default function Filmes() {
   useEffect(() => {
     const loadFeatured = async () => {
       const list = await api.getHomeList();
-      loadSingleMovie(list, "upcoming", setList);
+      loadSingleMovie(list, "comedy", setList);
     };
 
     loadFeatured();
@@ -28,11 +28,11 @@ export default function Filmes() {
     <>
       {list && <FeaturedMovie data={list} />}
 
-      <FilmesArea>
-        <h1>Filmes Online</h1>
+      <SerieArea>
+        <h1>Series Online</h1>
 
-        <Categories />
-      </FilmesArea>
+        <CategoriesSeries />
+      </SerieArea>
     </>
   );
 }

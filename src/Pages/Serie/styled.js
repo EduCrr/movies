@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FilmeArea = styled.div`
+export const SerieArea = styled.div`
   height: 100vh;
   .featuredVertical {
     width: inherit;
@@ -69,7 +69,7 @@ export const FilmeArea = styled.div`
   }
 `;
 
-export const FilmeContent = styled.div`
+export const SerieContent = styled.div`
   max-width: 1100px;
   margin: 3rem auto;
 

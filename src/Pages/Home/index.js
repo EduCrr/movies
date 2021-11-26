@@ -15,10 +15,10 @@ export default function Home() {
   async function loadSingleMovie(list, type, setType) {
     let popular = list.filter((item) => item.slug === String(type));
     let randomPopular = Math.floor(
-      Math.random() * popular[0].items.results.length - 1
+      Math.random() * popular[0].items.results.length
     );
     let chosen = popular[0].items.results[randomPopular];
-    let chosenInfo = await api.getMovieInfo(chosen.id);
+    let chosenInfo = await api.getMovieInfo(chosen.id, "movie");
     setType(chosenInfo);
   }
 
