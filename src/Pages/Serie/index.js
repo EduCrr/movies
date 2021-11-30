@@ -10,13 +10,13 @@ import DateRange from "@material-ui/icons/DateRange";
 export default function Serie() {
   const [serie, setSerie] = useState([]);
   const [atores, setAtores] = useState([]);
+  const [similarMovie, setSimilarMovie] = useState([]);
   //const [similarMovie, setSimilarMovie] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
     const loadSingleMovie = async () => {
       let tv = await api.getMovieInfo(id, "tv");
-      console.log(tv);
       setSerie(tv);
     };
     loadSingleMovie();
@@ -28,6 +28,15 @@ export default function Serie() {
       setAtores(actors.cast);
     };
     loadAtores();
+  }, []);
+
+  useEffect(() => {
+    const loadSimilar = async () => {
+      let similar = await api.getSimilares(id, "tv");
+      console.log(similar);
+      setSimilarMovie(similar);
+    };
+    loadSimilar();
   }, []);
 
   const handleDragStart = (e) => e.preventDefault();
@@ -93,7 +102,7 @@ export default function Serie() {
 
                 <div className="watch">
                   <a
-                    href={`https://www.youtube.com/results?search_query=${serie.title} trailer`}
+                    href={`https://www.youtube.com/results?search_query=${serie.original_name} trailer`}
                     target="_blank"
                   >
                     Trailer
@@ -110,7 +119,7 @@ export default function Serie() {
 
         <div className="desc">
           <div className="descLeft">
-            <span>Genero:</span> {genres.join(", ")}
+            <span>Gênero:</span> {genres.join(", ")}
             <br />
             <span>Episódios:</span> {serie.number_of_episodes}
             <br />
@@ -132,6 +141,13 @@ export default function Serie() {
             controlsStrategy="alternate"
           />
         </div>
+        {similarMovie && (
+          <>
+            {similarMovie.map((item, k) => (
+              <SliderMovie data={item} key={k} serie={true} />
+            ))}
+          </>
+        )}
       </SerieContent>
     </>
   );

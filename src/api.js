@@ -75,17 +75,6 @@ export default {
     return info;
   },
 
-  getSimilarMovie: async (movieId) => {
-    return [
-      {
-        slug: "similar",
-        title: "Similares",
-        items: await basicFetch(
-          `/movie/${movieId}/similar?language=pt-BR&api_key=${API_KEY} `
-        ),
-      },
-    ];
-  },
   getMovieActors: async (movieId, type) => {
     let actors;
     switch (type) {
@@ -105,6 +94,30 @@ export default {
     }
 
     return actors;
+  },
+
+  getSimilares: async (movieId, type) => {
+    if (type === "movie") {
+      return [
+        {
+          slug: "similar",
+          title: "Similares",
+          items: await basicFetch(
+            `/movie/${movieId}/similar?language=pt-BR&api_key=${API_KEY} `
+          ),
+        },
+      ];
+    } else if (type === "tv") {
+      return [
+        {
+          slug: "similar",
+          title: "Similares",
+          items: await basicFetch(
+            `/tv/${movieId}/similar?language=pt-BR&api_key=${API_KEY} `
+          ),
+        },
+      ];
+    }
   },
 
   getFilmesList: async (page = 1) => {

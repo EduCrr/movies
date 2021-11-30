@@ -10,11 +10,11 @@ export const HeaderArea = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0px;
+  padding: "10px 0px";
   background-color: transparent;
-  transition: all ease 0.3s;
+  transition: all ease 0.4s;
   max-width: 1100px;
-  margin: 50px auto;
+  margin: ${(props) => (props.black ? "10px auto" : "50px auto")};
 
   .headerLogo {
     text-transform: uppercase;

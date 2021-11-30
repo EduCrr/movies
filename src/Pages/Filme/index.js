@@ -16,7 +16,6 @@ export default function Filme() {
   useEffect(() => {
     const loadSingleMovie = async () => {
       let movie = await api.getMovieInfo(id, "movie");
-      console.log(movie);
       setFilme(movie);
     };
     loadSingleMovie();
@@ -32,7 +31,7 @@ export default function Filme() {
 
   useEffect(() => {
     const loadSimilar = async () => {
-      let similar = await api.getSimilarMovie(id);
+      let similar = await api.getSimilares(id, "movie");
       console.log(similar);
       setSimilarMovie(similar);
     };
