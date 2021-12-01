@@ -20,18 +20,22 @@ export default function Search() {
   const [searchMovie, setSearchMovie] = useState([]);
   const [page, setPage] = useState(2);
   const [list, setList] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [loadingF, setLoadingF] = useState(true);
 
   async function loadMovie() {
     if (keyWord.trim() === "") {
       console.log("campo em branco");
       return;
     } else {
+      setLoadingF(true);
       let movie = await api.getSearchList(keyWord);
       setSearchMovie(movie);
       console.log(movie);
       totalPages = movie[0].items.total_pages;
       console.log("total " + totalPages);
       totalResults = movie[0].items.total_results;
+      setLoadingF(false);
     }
   }
   useEffect(() => {
@@ -57,8 +61,10 @@ export default function Search() {
 
   useEffect(() => {
     const loadFeatured = async () => {
+      setLoading(true);
       const list = await api.getHomeList();
       loadSingleMovie(list, "comedy", setList);
+      setLoading(false);
     };
 
     loadFeatured();
@@ -89,35 +95,57 @@ export default function Search() {
       </>
     );
   }
+  function handleKeyWord(e) {
+    setLoadingF(true);
+    setKeyWord(e.target.value);
+    if (e.target.value === "") {
+      setLoadingF(false);
+    }
+  }
   return (
-    <SearchArea>
-      {list && <FeaturedMovie data={list} />}
-      <div className="submit">
-        <form method="GET">
-          <input
-            value={keyWord}
-            onChange={(e) => setKeyWord(e.target.value)}
-            name="query"
-            type="text"
-            required
-            placeholder="Nova consulta"
-          />
-        </form>
-      </div>
-      {searchMovie && (
-        <>
-          {searchMovie.map((item, k) => (
-            <SliderMovie data={item} key={k} noSlider={true} />
-          ))}
-        </>
-      )}
-      {page > totalPages || keyWord === "" || keyWord.indexOf(" ") >= 0 ? (
-        ""
-      ) : (
-        <div className="btn">
-          <button onClick={handlePage}>Carregar mais</button>
+    <>
+      {loading && (
+        <div className="loading">
+          <img src="/assets/loading.gif" alt="loading" />
         </div>
       )}
-    </SearchArea>
+      <SearchArea>
+        {list && <FeaturedMovie data={list} />}
+        <div className="submit">
+          <form method="GET">
+            <input
+              value={keyWord}
+              onChange={(e) => handleKeyWord(e)}
+              name="query"
+              type="text"
+              required
+              placeholder="Nova consulta"
+            />
+          </form>
+        </div>
+        {searchMovie && (
+          <>
+            {searchMovie.map((item, k) => (
+              <SliderMovie data={item} key={k} noSlider={true} />
+            ))}
+          </>
+        )}
+        {page > totalPages ||
+        keyWord === "" ||
+        keyWord.indexOf(" ") >= 0 ||
+        loadingF === true ? (
+          ""
+        ) : (
+          <div className="btn">
+            <button onClick={handlePage}>Carregar mais</button>
+          </div>
+        )}
+        {loadingF && (
+          <div className="loadingCat">
+            <img className="" src="/assets/loading2.gif" />
+          </div>
+        )}
+      </SearchArea>
+    </>
   );
 }

@@ -97,3 +97,11 @@ input {
 .loading img {
   height: 170px;
 }
+.loadingCat {
+  text-align: center;
+  margin: 2rem auto;
+}
+.loadingCat img {
+  height: 50px;
+  width: 50px;
+}

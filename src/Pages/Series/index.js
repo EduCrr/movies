@@ -19,6 +19,7 @@ export default function Series() {
 
   useEffect(() => {
     const loadFeatured = async () => {
+      setLoadingF(true);
       const list = await api.getHomeList();
       loadSingleMovie(list, "comedy", setList);
       setLoadingF(false);

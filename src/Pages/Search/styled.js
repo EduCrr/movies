@@ -13,6 +13,7 @@ export const SearchArea = styled.div`
       background-color: transparent;
       border: 1px solid #acacac;
       padding: 15px;
+      color: white;
     }
   }
 `;

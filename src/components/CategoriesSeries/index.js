@@ -9,6 +9,7 @@ export default function CategoriesSeries() {
   const [listSerieSingle, setListSerieSingle] = useState(null);
   const [page, setPage] = useState(2);
   const [slugH, setSlugH] = useState("");
+  const [loadingF, setLoadingF] = useState(true);
   let filmes = [
     { id: 0, title: "Ação e Aventura", slug: "action-adventure" },
     { id: 1, title: "Sci-Fi & Fantasia", slug: "scifi" },
@@ -35,12 +36,13 @@ export default function CategoriesSeries() {
 
   async function handleCategories(slug) {
     setListSeries([]);
+    setLoadingF(true);
     const singleMovie = await api.getSeriesList();
     const movieFilter = singleMovie.filter((item) => item.slug === slug);
-    console.log(movieFilter);
     setListSerieSingle(movieFilter);
     setSlugH(slug);
     setPage(2);
+    setLoadingF(false);
   }
   const responsive = {
     0: { items: 1 },
@@ -49,9 +51,10 @@ export default function CategoriesSeries() {
   };
   useEffect(() => {
     const loadSeries = async () => {
+      setLoadingF(true);
       const listSeries = await api.getSeriesList();
-      console.log(listSeries);
       setListSeries(listSeries);
+      setLoadingF(false);
     };
 
     loadSeries();
@@ -76,25 +79,33 @@ export default function CategoriesSeries() {
         controlsStrategy="alternate"
       />
 
-      {listMovies && (
-        <>
-          {listMovies.map((item, k) => (
-            <SliderMovie data={item} key={k} serie={true} />
-          ))}
-        </>
-      )}
-
-      {listSerieSingle && (
-        <>
-          {listSerieSingle.map((item, k) => (
-            <SliderMovie data={item} key={k} noSlider={true} serie={true} />
-          ))}
-        </>
-      )}
-      {listSerieSingle !== null && (
-        <div className="btn">
-          <button onClick={handlePage}>Carregar mais</button>
+      {loadingF ? (
+        <div className="loadingCat">
+          <img className="" src="/assets/loading2.gif" />
         </div>
+      ) : (
+        <>
+          {listMovies && (
+            <>
+              {listMovies.map((item, k) => (
+                <SliderMovie data={item} key={k} serie={true} />
+              ))}
+            </>
+          )}
+
+          {listSerieSingle && (
+            <>
+              {listSerieSingle.map((item, k) => (
+                <SliderMovie data={item} key={k} noSlider={true} serie={true} />
+              ))}
+            </>
+          )}
+          {listSerieSingle !== null && (
+            <div className="btn">
+              <button onClick={handlePage}>Carregar mais</button>
+            </div>
+          )}
+        </>
       )}
     </CategoriesArea>
   );

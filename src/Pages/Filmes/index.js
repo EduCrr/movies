@@ -19,6 +19,7 @@ export default function Filmes() {
 
   useEffect(() => {
     const loadFeatured = async () => {
+      setLoadingF(true);
       const list = await api.getHomeList();
       loadSingleMovie(list, "upcoming", setList);
       setLoadingF(false);
@@ -28,6 +29,11 @@ export default function Filmes() {
   }, []);
   return (
     <>
+      {loadingF && (
+        <div className="loading">
+          <img src="/assets/loading.gif" alt="loading" />
+        </div>
+      )}
       {list && <FeaturedMovie data={list} />}
 
       <FilmesArea>
@@ -35,11 +41,6 @@ export default function Filmes() {
 
         <Categories />
       </FilmesArea>
-      {loadingF && (
-        <div className="loading">
-          <img src="/assets/loading.gif" alt="loading" />
-        </div>
-      )}
     </>
   );
 }

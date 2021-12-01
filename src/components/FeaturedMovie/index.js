@@ -11,7 +11,7 @@ export default function FeaturedMovie({ data }) {
 
   return (
     <>
-      {!data && (
+      {data.length <= 0 && (
         <div className="loading">
           <img src="/assets/loading.gif" alt="loading" />
         </div>
