@@ -95,6 +95,11 @@ export default function Home() {
       {movieHomeFinal.map((item, k) => (
         <SliderMovie data={item} key={k} />
       ))}
+      {movieHome.length <= 0 && (
+        <div className="loading">
+          <img src="/assets/loading.gif" alt="loading" />
+        </div>
+      )}
     </HomeArea>
   );
 }

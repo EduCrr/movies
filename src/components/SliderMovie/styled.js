@@ -33,7 +33,7 @@ export const SliderMovieArea = styled.div`
   }
   .alice-carousel .alice-carousel__next-btn-item,
   .alice-carousel__prev-btn-item {
-    background-color: #ff0066;
+    background-color: #e52864;
     padding: 20px;
     span {
       color: white !important;

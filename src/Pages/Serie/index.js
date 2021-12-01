@@ -62,6 +62,10 @@ export default function Serie() {
     genres.push(serie.genres[i].name);
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const responsive = {
     0: { items: 1 },
     568: { items: 2 },

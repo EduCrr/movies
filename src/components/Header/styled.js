@@ -39,7 +39,7 @@ export const HeaderArea = styled.header`
       transition: all ease 0.4s;
 
       &:hover {
-        color: #ff0066;
+        color: #e52864;
       }
     }
   }

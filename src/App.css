@@ -2,7 +2,7 @@
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #ff0066 #16151d;
+  scrollbar-color: #e52864 #16151d;
   border-radius: 9999px;
 }
 
@@ -13,7 +13,7 @@ html ::-webkit-scrollbar {
 }
 
 html ::-webkit-scrollbar-thumb {
-  background-color: #ff0066;
+  background-color: #e52864;
   background-clip: padding-box;
   border-radius: 9999px;
 }
@@ -33,7 +33,7 @@ body {
   margin: 0;
 }
 span {
-  color: #ff0066;
+  color: #e52864;
 }
 p {
   color: #acacac;
@@ -52,7 +52,7 @@ ul {
 }
 
 button {
-  background-color: #ff0066;
+  background-color: #e52864;
   border: none;
   outline: 0;
   padding: 18px 40px;
@@ -62,4 +62,38 @@ button {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 15px;
+}
+
+form {
+  z-index: 99;
+  display: flex;
+  flex: 1;
+}
+input {
+  width: 100%;
+  cursor: pointer;
+  background-color: white;
+  padding: 20px;
+  color: #777;
+  border: 0px;
+  outline: 0;
+  transition: all ease 0.4s;
+  font-family: "Spartan", sans-serif;
+  font-weight: bold;
+}
+.loading {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #e52864;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999999;
+}
+.loading img {
+  height: 170px;
 }

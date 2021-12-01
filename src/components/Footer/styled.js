@@ -24,13 +24,13 @@ export const FooterArea = styled.footer`
     transition: all ease 0.4s;
 
     &:hover {
-      color: #ff0066;
+      color: #e52864;
     }
   }
   .footerInfo {
     strong {
       color: white;
     }
-    color: #ff0066;
+    color: #e52864;
   }
 `;

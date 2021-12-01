@@ -244,7 +244,6 @@ export default {
   getSearchList: async (word, page = 1) => {
     return [
       {
-        title: word,
         items: await basicFetch(
           `/search/movie?language=pt-BR&api_key=${API_KEY}&query=${word}&page=${page}`
         ),

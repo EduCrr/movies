@@ -33,7 +33,7 @@ export const FilmeArea = styled.div`
       flex-direction: column;
       justify-content: center;
       svg {
-        color: #ff0066;
+        color: #e52864;
       }
       .year,
       .vote {
@@ -55,7 +55,7 @@ export const FilmeArea = styled.div`
       }
     }
     a {
-      background-color: #ff0066;
+      background-color: #e52864;
       border: none;
       outline: 0;
       padding: 8px 20px;
@@ -114,7 +114,7 @@ export const FilmeContent = styled.div`
     }
     .alice-carousel .alice-carousel__next-btn-item,
     .alice-carousel__prev-btn-item {
-      background-color: #ff0066;
+      background-color: #e52864;
       padding: 20px;
       margin-top: 20px;
       span {

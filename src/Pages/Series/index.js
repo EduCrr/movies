@@ -5,6 +5,7 @@ import FeaturedMovie from "../../components/FeaturedMovie";
 import CategoriesSeries from "../../components/CategoriesSeries";
 export default function Series() {
   const [list, setList] = useState({});
+  const [loadingF, setLoadingF] = useState(true);
 
   async function loadSingleMovie(list, type, setType) {
     let popular = list.filter((item) => item.slug === String(type));
@@ -20,12 +21,18 @@ export default function Series() {
     const loadFeatured = async () => {
       const list = await api.getHomeList();
       loadSingleMovie(list, "comedy", setList);
+      setLoadingF(false);
     };
 
     loadFeatured();
   }, []);
   return (
     <>
+      {loadingF && (
+        <div className="loading">
+          <img src="/assets/loading.gif" alt="loading" />
+        </div>
+      )}
       {list && <FeaturedMovie data={list} />}
 
       <SerieArea>

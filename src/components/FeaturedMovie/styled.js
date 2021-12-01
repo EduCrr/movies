@@ -38,14 +38,14 @@ export const FeaturedMovieArea = styled.div`
             display: inline-block;
             margin-right: 20px;
             svg {
-              color: #ff0066;
+              color: #e52864;
               margin: auto;
             }
           }
           .featuredPoints {
           }
           .genres {
-            background: #ff0066;
+            background: #e52864;
             color: white;
             display: inline-block;
             padding: 10px;

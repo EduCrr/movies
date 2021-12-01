@@ -24,7 +24,7 @@ export const SingleMovie = styled.div`
     .title {
       font-size: 20px;
       font-weight: bold;
-      background-color: #ff0066;
+      background-color: #e52864;
       display: inline;
       padding: 5px 10px;
     }
@@ -42,7 +42,7 @@ export const SingleMovie = styled.div`
       }
       svg {
         margin-right: 10px;
-        color: #ff0066;
+        color: #e52864;
       }
     }
     .overview {

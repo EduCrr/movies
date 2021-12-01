@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CategoriesArea = styled.div`
   .alice-carousel .alice-carousel__next-btn-item,
   .alice-carousel__prev-btn-item {
-    background-color: #ff0066;
+    background-color: #e52864;
     padding: 20px;
     span {
       color: white !important;
@@ -14,7 +14,7 @@ export const CategoriesArea = styled.div`
     transform: scale(0.9);
     cursor: pointer;
     margin: 2rem 0px;
-    background-color: #ff0066;
+    background-color: #e52864;
     color: white;
     padding: 20px;
     text-align: center;
@@ -22,7 +22,7 @@ export const CategoriesArea = styled.div`
   .btn {
     text-align: center;
     button {
-      background-color: #ff0066;
+      background-color: #e52864;
       border: none;
       outline: 0;
       padding: 18px 40px;

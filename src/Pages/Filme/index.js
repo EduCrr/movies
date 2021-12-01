@@ -43,6 +43,9 @@ export default function Filme() {
     genres.push(filme.genres[i].name);
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const handleDragStart = (e) => e.preventDefault();
 
   const items = atores.map((item, k) => (

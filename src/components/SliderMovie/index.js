@@ -9,11 +9,13 @@ export default function SliderMovie({ data, noSlider, serie }) {
     data.items.results.length > 0 &&
     data.items.results.map((item, k) => (
       <div key={k}>
-        <img
-          onDragStart={handleDragStart}
-          src={`https://image.tmdb.org/t/p/w300/${item.poster_path}`}
-          alt={item.original_name}
-        />
+        <Link to={`/filme/${item.id}`}>
+          <img
+            onDragStart={handleDragStart}
+            src={`https://image.tmdb.org/t/p/w300/${item.poster_path}`}
+            alt={item.original_name}
+          />
+        </Link>
         <Link to={serie ? `/serie/${item.id}` : `/filme/${item.id}`}>
           <div className="title">{serie ? item.name : item.title}</div>
         </Link>
@@ -54,11 +56,13 @@ export default function SliderMovie({ data, noSlider, serie }) {
             {data.items.results.length > 0 &&
               data.items.results.map((item, k) => (
                 <div key={k} className="normal">
-                  <img
-                    onDragStart={handleDragStart}
-                    src={`https://image.tmdb.org/t/p/w300/${item.poster_path}`}
-                    alt={item.original_name}
-                  />
+                  <Link to={`/filme/${item.id}`}>
+                    <img
+                      onDragStart={handleDragStart}
+                      src={`https://image.tmdb.org/t/p/w300/${item.poster_path}`}
+                      alt={item.original_name}
+                    />
+                  </Link>
                   <div className="infos">
                     <Link to={`/filme/${item.id}`}>
                       <div className="title">

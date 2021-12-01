@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import api from "../../api";
 import { SearchArea } from "./styled";
 import SliderMovie from "../../components/SliderMovie";
 import FeaturedMovie from "../../components/FeaturedMovie";
 let totalPages;
 let totalResults;
+let timer;
 export default function Search() {
+  let history = useHistory();
   let url = useLocation().search;
   function getQueryString() {
     return new URLSearchParams(url); //transforma em objeto
@@ -19,8 +21,11 @@ export default function Search() {
   const [page, setPage] = useState(2);
   const [list, setList] = useState({});
 
-  useEffect(() => {
-    async function loadMovie() {
+  async function loadMovie() {
+    if (keyWord.trim() === "") {
+      console.log("campo em branco");
+      return;
+    } else {
       let movie = await api.getSearchList(keyWord);
       setSearchMovie(movie);
       console.log(movie);
@@ -28,6 +33,8 @@ export default function Search() {
       console.log("total " + totalPages);
       totalResults = movie[0].items.total_results;
     }
+  }
+  useEffect(() => {
     loadMovie();
   }, []);
 
@@ -57,6 +64,22 @@ export default function Search() {
     loadFeatured();
   }, []);
 
+  //nova consulta
+  useEffect(() => {
+    let queryString = [];
+    if (keyWord) {
+      queryString.push(`query=${keyWord}`);
+    }
+    history.replace({
+      search: `?${queryString}`,
+    });
+    if (timer) {
+      clearTimeout(timer);
+    }
+    setSearchMovie([]);
+    timer = setTimeout(loadMovie, 2000);
+  }, [keyWord]);
+
   if (totalResults === 0) {
     return (
       <>
@@ -69,6 +92,18 @@ export default function Search() {
   return (
     <SearchArea>
       {list && <FeaturedMovie data={list} />}
+      <div className="submit">
+        <form method="GET">
+          <input
+            value={keyWord}
+            onChange={(e) => setKeyWord(e.target.value)}
+            name="query"
+            type="text"
+            required
+            placeholder="Nova consulta"
+          />
+        </form>
+      </div>
       {searchMovie && (
         <>
           {searchMovie.map((item, k) => (
@@ -76,7 +111,7 @@ export default function Search() {
           ))}
         </>
       )}
-      {page > totalPages ? (
+      {page > totalPages || keyWord === "" || keyWord.indexOf(" ") >= 0 ? (
         ""
       ) : (
         <div className="btn">

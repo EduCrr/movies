@@ -4,6 +4,7 @@ import SliderMovie from "../SliderMovie";
 import api from "../../api";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+let totalPages;
 export default function Categories() {
   const [listMovies, setListMovies] = useState([]);
   const [listMovieSingle, setListMovieSingle] = useState(null);
@@ -51,6 +52,7 @@ export default function Categories() {
     const loadFilmes = async () => {
       const listFilmes = await api.getFilmesList();
       setListMovies(listFilmes);
+      totalPages = listFilmes[0].items.total_pages;
     };
 
     loadFilmes();
@@ -90,11 +92,14 @@ export default function Categories() {
           ))}
         </>
       )}
-      {listMovieSingle !== null && (
-        <div className="btn">
-          <button onClick={handlePage}>Carregar mais</button>
-        </div>
-      )}
+      {listMovieSingle !== null &&
+        (page > totalPages ? (
+          ""
+        ) : (
+          <div className="btn">
+            <button onClick={handlePage}>Carregar mais</button>
+          </div>
+        ))}
     </CategoriesArea>
   );
 }

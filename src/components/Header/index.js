@@ -41,9 +41,9 @@ export default function Header() {
       >
         <HeaderArea black={blackHeader}>
           <div className="headerLogo">
-            <a href="/">
+            <Link to="/">
               <h1>E-Movie</h1>
-            </a>
+            </Link>
           </div>
           <div className="headerMenu">
             <ul>
@@ -68,7 +68,7 @@ export default function Header() {
           </div>
         </HeaderArea>
       </div>
-      {openModal && <Modal />}
+      {openModal && <Modal close={setOpenModal} />}
     </>
   );
 }
