@@ -5,6 +5,7 @@ import Filmes from "./Pages/Filmes";
 import Filme from "./Pages/Filme";
 import Series from "./Pages/Series";
 import Serie from "./Pages/Serie";
+import Search from "./Pages/Search";
 export default function Routes() {
   return (
     <Switch>
@@ -22,6 +23,9 @@ export default function Routes() {
       </Route>
       <Route exact path="/serie/:id">
         <Serie />
+      </Route>
+      <Route exact path="/search">
+        <Search />
       </Route>
     </Switch>
   );

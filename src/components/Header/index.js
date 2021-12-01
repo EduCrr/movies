@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HeaderArea } from "./styled";
 import Search from "@material-ui/icons/Search";
-
+import Modal from "../Modal";
 export default function Header() {
   const [blackHeader, setBlackHeader] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     const scrollListener = () => {
@@ -20,6 +21,11 @@ export default function Header() {
       window.removeEventListener("scroll", scrollListener);
     };
   }, []);
+
+  function handleSearch() {
+    console.log("s");
+    setOpenModal(!openModal);
+  }
   return (
     <>
       <div
@@ -43,7 +49,7 @@ export default function Header() {
             <ul>
               <li>
                 <span>
-                  <Search />
+                  <Search onClick={handleSearch} />
                 </span>
               </li>
               <li>
@@ -62,6 +68,7 @@ export default function Header() {
           </div>
         </HeaderArea>
       </div>
+      {openModal && <Modal />}
     </>
   );
 }

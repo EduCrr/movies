@@ -241,6 +241,16 @@ export default {
       },
     ];
   },
+  getSearchList: async (word, page = 1) => {
+    return [
+      {
+        title: word,
+        items: await basicFetch(
+          `/search/movie?language=pt-BR&api_key=${API_KEY}&query=${word}&page=${page}`
+        ),
+      },
+    ];
+  },
 };
 
 //genre https://api.themoviedb.org/3/genre/movie/list?api_key=57fa556e7273f4df37aa912447616832&language=en-US

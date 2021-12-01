@@ -12,13 +12,16 @@ export const FeaturedMovieArea = styled.div`
 
     .infoList {
       .title {
-        font-size: 60px;
+        font-size: 45px;
         text-transform: uppercase;
         font-weight: bold;
         text-align: center;
-        margin-bottom: 10px;
+        width: 1000px;
+        line-height: 55px;
+        margin: auto;
       }
       .details {
+        margin-top: 30px !important;
         p {
           color: white;
         }
