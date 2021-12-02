@@ -6,6 +6,7 @@ import Filme from "./Pages/Filme";
 import Series from "./Pages/Series";
 import Serie from "./Pages/Serie";
 import Search from "./Pages/Search";
+import Favoritos from "./Pages/Favoritos";
 export default function Routes() {
   return (
     <Switch>
@@ -26,6 +27,9 @@ export default function Routes() {
       </Route>
       <Route exact path="/search">
         <Search />
+      </Route>
+      <Route exact path="/favoritos">
+        <Favoritos />
       </Route>
     </Switch>
   );

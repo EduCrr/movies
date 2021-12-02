@@ -7,16 +7,20 @@ import api from "../../api";
 import SliderMovie from "../../components/SliderMovie";
 import Stars from "@material-ui/icons/Stars";
 import DateRange from "@material-ui/icons/DateRange";
+import { useStateValue } from "../../contexts/StateContext";
+
 export default function Serie() {
   const [serie, setSerie] = useState([]);
   const [atores, setAtores] = useState([]);
   const [similarMovie, setSimilarMovie] = useState([]);
-  //const [similarMovie, setSimilarMovie] = useState([]);
+  const [state, dispatch] = useStateValue();
+
   const { id } = useParams();
 
   useEffect(() => {
     const loadSingleMovie = async () => {
       let tv = await api.getMovieInfo(id, "tv");
+      console.log(tv);
       setSerie(tv);
     };
     loadSingleMovie();
@@ -71,6 +75,20 @@ export default function Serie() {
     568: { items: 2 },
     1024: { items: 4 },
   };
+
+  function handleAddFav(serie) {
+    let dadosFilme = {
+      id: serie.id,
+      name: serie.name,
+      original_name: serie.original_name,
+      poster_path: serie.poster_path,
+    };
+
+    dispatch({
+      type: "addFavSerie",
+      add: dadosFilme,
+    });
+  }
   return (
     <>
       <SerieArea
@@ -131,7 +149,7 @@ export default function Serie() {
             <p>{serie.overview}</p>
           </div>
           <div className="descRight">
-            <button>++ favoritos</button>
+            <button onClick={() => handleAddFav(serie)}>++ favoritos</button>
           </div>
         </div>
 

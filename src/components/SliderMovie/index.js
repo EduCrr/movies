@@ -9,7 +9,7 @@ export default function SliderMovie({ data, noSlider, serie }) {
     data.items.results.length > 0 &&
     data.items.results.map((item, k) => (
       <div key={k}>
-        <Link to={`/filme/${item.id}`}>
+        <Link to={serie ? `/serie/${item.id}` : `/filme/${item.id}`}>
           <img
             onDragStart={handleDragStart}
             src={`https://image.tmdb.org/t/p/w300/${item.poster_path}`}

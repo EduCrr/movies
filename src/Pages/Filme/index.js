@@ -7,15 +7,18 @@ import api from "../../api";
 import SliderMovie from "../../components/SliderMovie";
 import Stars from "@material-ui/icons/Stars";
 import DateRange from "@material-ui/icons/DateRange";
+import { useStateValue } from "../../contexts/StateContext";
 export default function Filme() {
   const [filme, setFilme] = useState([]);
   const [atores, setAtores] = useState([]);
   const [similarMovie, setSimilarMovie] = useState([]);
   const { id } = useParams();
+  const [state, dispatch] = useStateValue();
 
   useEffect(() => {
     const loadSingleMovie = async () => {
       let movie = await api.getMovieInfo(id, "movie");
+      console.log(movie);
       setFilme(movie);
     };
     loadSingleMovie();
@@ -69,6 +72,20 @@ export default function Filme() {
     568: { items: 2 },
     1024: { items: 4 },
   };
+
+  function handleAddFav(filme) {
+    let dadosFilme = {
+      id: filme.id,
+      title: filme.title,
+      original_name: filme.original_name,
+      poster_path: filme.poster_path,
+    };
+
+    dispatch({
+      type: "addFav",
+      add: dadosFilme,
+    });
+  }
   return (
     <>
       <FilmeArea
@@ -125,7 +142,7 @@ export default function Filme() {
             <p>{filme.overview}</p>
           </div>
           <div className="descRight">
-            <button>++ favoritos</button>
+            <button onClick={() => handleAddFav(filme)}>++ favoritos</button>
           </div>
         </div>
 
