@@ -13,6 +13,11 @@ export default function FavoritosReducer(state = initialState, action = {}) {
     }
   }
 
+  function RemoveData(info) {
+    let newFavList = info.filter((item) => item.id !== action.id);
+    return newFavList;
+  }
+
   switch (action.type) {
     case "addFav":
       let newFav = [...state.favoritosMovies];
@@ -22,8 +27,8 @@ export default function FavoritosReducer(state = initialState, action = {}) {
 
     case "remove":
       let listFav = [...state.favoritosMovies];
-      let newFavList = listFav.filter((item) => item.id !== action.id);
-      return { ...state, favoritosMovies: newFavList };
+      let newListFav = RemoveData(listFav);
+      return { ...state, favoritosMovies: newListFav };
       break;
 
     //serie
@@ -36,8 +41,9 @@ export default function FavoritosReducer(state = initialState, action = {}) {
 
     case "removeSerie":
       let listSerie = [...state.favoritosSeries];
-      let newSerieList = listSerie.filter((item) => item.id !== action.id);
-      return { ...state, favoritosSeries: newSerieList };
+      let newListFavSerie = RemoveData(listSerie);
+
+      return { ...state, favoritosSeries: newListFavSerie };
       break;
   }
   return state;

@@ -19,6 +19,7 @@ export default function Favortios() {
       id,
     });
   }
+
   return (
     <FavoritosArea>
       <div className="area">
@@ -26,6 +27,7 @@ export default function Favortios() {
           <Favorite /> Favoritos
         </h1>
       </div>
+
       <div>
         <h2>
           Filmes favoritos{" "}
