@@ -22,10 +22,11 @@ export default function Search() {
   const [list, setList] = useState({});
   const [loading, setLoading] = useState(true);
   const [loadingF, setLoadingF] = useState(true);
+  const [result, setResult] = useState("");
 
   async function loadMovie() {
     if (keyWord.trim() === "") {
-      console.log("campo em branco");
+      setLoadingF(false);
       return;
     } else {
       setLoadingF(true);
@@ -36,6 +37,9 @@ export default function Search() {
       console.log("total " + totalPages);
       totalResults = movie[0].items.total_results;
       setLoadingF(false);
+      if (totalResults === 0) {
+        setResult("Nenhum filme encontrado!");
+      }
     }
   }
   useEffect(() => {
@@ -72,6 +76,7 @@ export default function Search() {
 
   //nova consulta
   useEffect(() => {
+    setResult("");
     let queryString = [];
     if (keyWord) {
       queryString.push(`query=${keyWord}`);
@@ -86,15 +91,6 @@ export default function Search() {
     timer = setTimeout(loadMovie, 2000);
   }, [keyWord]);
 
-  if (totalResults === 0) {
-    return (
-      <>
-        {list && <FeaturedMovie data={list} />}
-
-        <h1 style={{ textAlign: "center" }}>Nenhum filme encontrado</h1>
-      </>
-    );
-  }
   function handleKeyWord(e) {
     setLoadingF(true);
     setKeyWord(e.target.value);
@@ -102,6 +98,7 @@ export default function Search() {
       setLoadingF(false);
     }
   }
+
   return (
     <>
       {loading && (
@@ -123,6 +120,7 @@ export default function Search() {
             />
           </form>
         </div>
+        {result !== "" && <h1 style={{ textAlign: "center" }}>{result}</h1>}
         {searchMovie && (
           <>
             {searchMovie.map((item, k) => (

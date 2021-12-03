@@ -166,7 +166,12 @@ export default function Serie() {
         {similarMovie && (
           <>
             {similarMovie.map((item, k) => (
-              <SliderMovie data={item} key={k} serie={true} />
+              <SliderMovie
+                data={item}
+                key={k}
+                serie={true}
+                similar={similarMovie}
+              />
             ))}
           </>
         )}

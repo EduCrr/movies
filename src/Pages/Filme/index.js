@@ -159,7 +159,7 @@ export default function Filme() {
         {similarMovie && (
           <>
             {similarMovie.map((item, k) => (
-              <SliderMovie data={item} key={k} />
+              <SliderMovie data={item} key={k} similar={similarMovie} />
             ))}
           </>
         )}

@@ -52,7 +52,9 @@ export default function FeaturedMovie({ data }) {
                 <br />
                 <div className="genres">{genres.join(", ")}</div>
               </div>
-              <div className="infoRight">{data.overview && data.overview}</div>
+              <div className="infoRight">
+                {data.overview && data.overview.substring(0, 200) + "..."}
+              </div>
             </div>
           </div>
         </div>

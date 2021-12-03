@@ -68,7 +68,7 @@ export default function Header() {
           </div>
         </HeaderArea>
       </div>
-      {openModal && <Modal close={setOpenModal} />}
+      <Modal open={openModal} close={setOpenModal} />
     </>
   );
 }

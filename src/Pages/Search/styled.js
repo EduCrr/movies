@@ -11,8 +11,8 @@ export const SearchArea = styled.div`
 
     input {
       background-color: transparent;
-      border: 1px solid #acacac;
-      padding: 15px;
+      border-bottom: 1px solid #acacac;
+      padding: 10px 0px;
       color: white;
     }
   }
