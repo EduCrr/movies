@@ -65,9 +65,9 @@ export default function SliderMovie({ data, noSlider, serie, similar }) {
   const responsive = {
     0: { items: 1 },
     568: { items: 2 },
+    768: { items: 3 },
     1024: { items: 4 },
   };
-
   return (
     <>
       {noSlider !== true && (

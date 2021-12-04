@@ -27,7 +27,7 @@ export const FavoritosArea = styled.div`
           width: 100%;
           transform: scale(0.9);
           transition: all ease 0.2s;
-          object-fit: cover;
+          object-fit: scale-down;
           &:hover {
             transform: scale(1);
             transition: all ease 0.2s;
@@ -54,6 +54,27 @@ export const FavoritosArea = styled.div`
     color: #acacac !important;
     opacity: 0.2;
     margin: 2rem auto;
+  }
+  @media (max-width: 1024px) {
+    .area {
+      justify-content: center;
+    }
+    h2 {
+      text-align: center;
+    }
+    .favoritesItems {
+      width: 33% !important;
+    }
+  }
+  @media (max-width: 768px) {
+    .favoritesItems {
+      width: 50% !important;
+    }
+  }
+  @media (max-width: 600px) {
+    .favoritesItems {
+      width: 100% !important;
+    }
   }
 `;
 /*

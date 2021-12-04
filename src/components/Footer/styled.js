@@ -33,4 +33,23 @@ export const FooterArea = styled.footer`
     }
     color: #e52864;
   }
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    ul,
+    li {
+      flex-direction: column;
+      margin: auto;
+    }
+    ul,
+    a {
+      text-align: center;
+    }
+    .footerInfo {
+      margin-top: 20px;
+    }
+  }
 `;

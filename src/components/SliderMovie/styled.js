@@ -25,7 +25,7 @@ export const SliderMovieArea = styled.div`
     width: 100%;
     transform: scale(0.9);
     transition: all ease 0.2s;
-    object-fit: cover;
+    object-fit: scale-down;
     &:hover {
       transform: scale(1);
       transition: all ease 0.2s;
@@ -51,5 +51,32 @@ export const SliderMovieArea = styled.div`
   }
   .infos {
     margin-top: auto;
+  }
+  @media (max-width: 1024px) {
+    h1 {
+      text-align: center;
+    }
+    .title {
+      margin: auto;
+      max-width: 300px;
+    }
+    .normal {
+      width: 33%;
+    }
+  }
+  @media (max-width: 768px) {
+    .normal {
+      width: 50%;
+    }
+    .infoSlider {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  @media (max-width: 600px) {
+    .normal {
+      width: 100%;
+    }
   }
 `;

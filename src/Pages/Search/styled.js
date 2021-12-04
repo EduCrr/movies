@@ -16,4 +16,10 @@ export const SearchArea = styled.div`
       color: white;
     }
   }
+  @media (max-width: 768px) {
+    input {
+      margin: auto;
+      width: 70%;
+    }
+  }
 `;

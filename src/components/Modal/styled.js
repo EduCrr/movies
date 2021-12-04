@@ -20,4 +20,9 @@ export const ModalArea = styled.div`
   .btn {
     height: auto;
   }
+  @media (max-width: 1024px) {
+    .search {
+      width: 100%;
+    }
+  }
 `;

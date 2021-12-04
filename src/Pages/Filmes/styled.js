@@ -11,4 +11,9 @@ export const FilmesArea = styled.main`
   .categories {
     margin-top: 3rem;
   }
+  @media (max-width: 1024px) {
+    h1 {
+      text-align: center;
+    }
+  }
 `;

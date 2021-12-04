@@ -58,4 +58,30 @@ export const FeaturedMovieArea = styled.div`
       }
     }
   }
+  @media (max-width: 1024px) {
+    .title {
+      width: 100% !important;
+      font-size: 40px;
+    }
+    .details {
+      flex-direction: column;
+      align-items: center !important;
+      text-align: center;
+      .infoLeft .infoRight {
+        width: 100%;
+      }
+      .infoRight {
+        margin-top: 30px;
+      }
+    }
+  }
+  @media (max-width: 375px) {
+    .title {
+      font-size: 30px !important;
+    }
+    .infoRight {
+      padding: 0px 20px;
+      width: 100% !important;
+    }
+  }
 `;

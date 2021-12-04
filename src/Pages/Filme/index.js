@@ -52,7 +52,7 @@ export default function Filme() {
   const handleDragStart = (e) => e.preventDefault();
 
   const items = atores.map((item, k) => (
-    <div key={k}>
+    <div className="atores" key={k}>
       <img
         onDragStart={handleDragStart}
         src={
@@ -69,7 +69,8 @@ export default function Filme() {
 
   const responsive = {
     0: { items: 1 },
-    568: { items: 2 },
+    568: { items: 3 },
+    768: { items: 4 },
     1024: { items: 4 },
   };
 

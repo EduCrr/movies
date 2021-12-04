@@ -5,6 +5,7 @@ export const CategoriesArea = styled.div`
   .alice-carousel__prev-btn-item {
     background-color: #e52864;
     padding: 20px;
+    margin-bottom: 2rem;
     span {
       color: white !important;
       font-size: 20px;
@@ -32,6 +33,11 @@ export const CategoriesArea = styled.div`
       text-transform: uppercase;
       font-weight: bold;
       font-size: 15px;
+    }
+  }
+  @media (max-width: 1024px) {
+    h2 {
+      text-align: center;
     }
   }
 `;

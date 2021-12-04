@@ -67,6 +67,26 @@ export const FilmeArea = styled.div`
       font-size: 15px;
     }
   }
+  @media (max-width: 768px) {
+    .infos {
+      justify-content: center;
+      align-items: center;
+    }
+    .infoArea {
+      flex-direction: column;
+      text-align: center;
+    }
+    .details {
+      margin-top: 20px !important;
+      align-items: center;
+    }
+    .poster {
+      img {
+        margin: auto;
+        padding-right: 0px !important;
+      }
+    }
+  }
 `;
 
 export const FilmeContent = styled.div`
@@ -100,13 +120,11 @@ export const FilmeContent = styled.div`
       text-align: center;
     }
     img {
-      height: 350px;
+      height: 450px;
       width: 100%;
-      object-fit: cover;
+      object-fit: scale-down;
       transform: scale(0.9);
       transition: all ease 0.2s;
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-        0 10px 10px rgba(2, 2, 2, 0.22);
 
       &:hover {
         transform: scale(1);
@@ -121,6 +139,29 @@ export const FilmeContent = styled.div`
         color: white !important;
         font-size: 20px;
       }
+    }
+  }
+  @media (max-width: 1024px) {
+    img {
+      object-fit: scale-down !important;
+    }
+  }
+  @media (max-width: 768px) {
+    h2 {
+      text-align: center;
+    }
+    .desc {
+      text-align: center;
+      flex-direction: column;
+      .descRight {
+        margin-top: 20px;
+      }
+    }
+  }
+  @media (max-width: 375px) {
+    margin-top: 5rem;
+    p {
+      padding: 0px 20px;
     }
   }
 `;

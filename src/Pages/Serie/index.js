@@ -72,10 +72,10 @@ export default function Serie() {
 
   const responsive = {
     0: { items: 1 },
-    568: { items: 2 },
+    568: { items: 3 },
+    768: { items: 4 },
     1024: { items: 4 },
   };
-
   function handleAddFav(serie) {
     let dadosFilme = {
       id: serie.id,

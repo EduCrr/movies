@@ -49,4 +49,13 @@ export const SingleMovie = styled.div`
       width: 550px;
     }
   }
+
+  @media (max-width: 375px) {
+    .titleSingle {
+      font-size: 30px !important;
+    }
+    .overview {
+      width: 100% !important;
+    }
+  }
 `;
