@@ -53,7 +53,7 @@ export const FeaturedMovieArea = styled.div`
           }
         }
         .infoRight {
-          width: 500px;
+          width: 50%;
         }
       }
     }
@@ -72,16 +72,15 @@ export const FeaturedMovieArea = styled.div`
       }
       .infoRight {
         margin-top: 30px;
+        width: 100% !important;
+        padding: 0px 5px;
       }
     }
   }
+
   @media (max-width: 375px) {
     .title {
       font-size: 30px !important;
-    }
-    .infoRight {
-      padding: 0px 5px;
-      width: auto !important;
     }
   }
 `;

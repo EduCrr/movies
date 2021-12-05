@@ -46,16 +46,17 @@ export const SingleMovie = styled.div`
       }
     }
     .overview {
-      width: 550px;
+      width: 50%;
     }
   }
-
+  @media (max-width: 600px) {
+    .overview {
+      width: 100% !important;
+    }
+  }
   @media (max-width: 375px) {
     .titleSingle {
       font-size: 30px !important;
-    }
-    .overview {
-      width: auto !important;
     }
   }
 `;
