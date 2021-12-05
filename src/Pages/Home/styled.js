@@ -55,7 +55,7 @@ export const SingleMovie = styled.div`
       font-size: 30px !important;
     }
     .overview {
-      width: 100% !important;
+      width: auto !important;
     }
   }
 `;

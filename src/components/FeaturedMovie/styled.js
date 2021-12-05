@@ -80,8 +80,8 @@ export const FeaturedMovieArea = styled.div`
       font-size: 30px !important;
     }
     .infoRight {
-      padding: 0px 20px;
-      width: 100% !important;
+      padding: 0px 5px;
+      width: auto !important;
     }
   }
 `;

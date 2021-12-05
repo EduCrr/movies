@@ -25,7 +25,7 @@ export default function Routes() {
       <Route exact path="/serie/:id">
         <Serie />
       </Route>
-      <Route exact path="/search">
+      <Route path="/search">
         <Search />
       </Route>
       <Route exact path="/favoritos">
