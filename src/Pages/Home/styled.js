@@ -59,4 +59,7 @@ export const SingleMovie = styled.div`
       font-size: 30px !important;
     }
   }
+  @media (max-width: 812px) and (orientation: landscape) {
+    height: 150vh !important;
+  }
 `;

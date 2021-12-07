@@ -83,4 +83,7 @@ export const FeaturedMovieArea = styled.div`
       font-size: 30px !important;
     }
   }
+  @media (max-width: 812px) and (orientation: landscape) {
+    height: 200vh;
+  }
 `;
