@@ -25,6 +25,7 @@ export const SliderMovieArea = styled.div`
     width: 100%;
     transform: scale(0.9);
     transition: all ease 0.2s;
+    cursor: pointer;
     object-fit: scale-down;
     &:hover {
       transform: scale(1);

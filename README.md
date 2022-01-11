@@ -1,5 +1,11 @@
 <p align="center">
+http://edumoviee.epizy.com/
+</p>
 
+<h1 align="center">Sobre o projeto</h1>
+
+<p align="center">
+Um site da web para visualizar dados de filmes e séries, utlizando informações da (TMDB) API. Visualize os principais atores de cada filme e detalhes sobre sua sinopse. Salve seus filmes e séries prediletos na página favoritos e muito mais.
 </p>
 
 <div align="center">

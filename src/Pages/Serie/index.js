@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { SerieArea, SerieContent } from "./styled";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -16,6 +16,7 @@ export default function Serie() {
   const [state, dispatch] = useStateValue();
 
   const { id } = useParams();
+  let history = useHistory();
 
   useEffect(() => {
     const loadSingleMovie = async () => {
@@ -88,6 +89,7 @@ export default function Serie() {
       type: "addFavSerie",
       add: dadosFilme,
     });
+    history.push("/favoritos");
   }
   return (
     <>

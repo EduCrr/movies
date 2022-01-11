@@ -37,7 +37,7 @@ export default function Series() {
       {list && <FeaturedMovie data={list} />}
 
       <SerieArea>
-        <h1>Series Online</h1>
+        <h1>Séries Online</h1>
 
         <CategoriesSeries />
       </SerieArea>

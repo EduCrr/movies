@@ -15,7 +15,7 @@ export default function Footer() {
               <Link to="/">Filmes</Link>
             </li>
             <li>
-              <Link to="/tv-series">TV Series</Link>
+              <Link to="/tv-series">TV Séries</Link>
             </li>
             <li>
               <Link to="/">Favoritos</Link>

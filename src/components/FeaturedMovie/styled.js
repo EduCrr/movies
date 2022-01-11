@@ -8,17 +8,19 @@ export const FeaturedMovieArea = styled.div`
     background: linear-gradient(to top, #16151d 5%, transparent 95%);
     display: flex;
     flex-direction: column;
-    justify-content: center;
 
     .infoList {
+      max-width: 1100px;
+      margin: auto;
       .title {
-        font-size: 45px;
+        display: flex;
+        align-items: flex-start;
+        font-size: 30px;
         text-transform: uppercase;
         font-weight: bold;
-        text-align: center;
-        width: 1000px;
+        width: 550px;
+        justify-content: flex-start;
         line-height: 55px;
-        margin: auto;
       }
       .details {
         margin-top: 30px !important;
@@ -59,9 +61,12 @@ export const FeaturedMovieArea = styled.div`
     }
   }
   @media (max-width: 1024px) {
+    height: 120vh;
     .title {
+      padding: 0px 20px;
       width: 100% !important;
       font-size: 40px;
+      text-align: center;
     }
     .details {
       flex-direction: column;
@@ -73,7 +78,7 @@ export const FeaturedMovieArea = styled.div`
       .infoRight {
         margin-top: 30px;
         width: 100% !important;
-        padding: 0px 5px;
+        padding: 0px 20px;
       }
     }
   }
@@ -83,7 +88,7 @@ export const FeaturedMovieArea = styled.div`
       font-size: 30px !important;
     }
   }
-  @media (max-width: 812px) and (orientation: landscape) {
+  @media screen and (orientation: landscape) and (max-device-width: 812px) {
     height: 200vh;
   }
 `;

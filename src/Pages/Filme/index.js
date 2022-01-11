@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { FilmeArea, FilmeContent } from "./styled";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -14,7 +14,7 @@ export default function Filme() {
   const [similarMovie, setSimilarMovie] = useState([]);
   const { id } = useParams();
   const [state, dispatch] = useStateValue();
-
+  let history = useHistory();
   useEffect(() => {
     const loadSingleMovie = async () => {
       let movie = await api.getMovieInfo(id, "movie");
@@ -86,6 +86,8 @@ export default function Filme() {
       type: "addFav",
       add: dadosFilme,
     });
+
+    history.push("/favoritos");
   }
   return (
     <>

@@ -65,7 +65,7 @@ export default function Header() {
                   <Link to="/filmes">Filmes</Link>
                 </li>
                 <li>
-                  <Link to="/tv-series">TV Series</Link>
+                  <Link to="/tv-series">TV Séries</Link>
                 </li>
                 <li>
                   <Link to="/favoritos">Favoritos</Link>

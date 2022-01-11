@@ -87,6 +87,9 @@ export const SerieArea = styled.div`
       }
     }
   }
+  @media screen and (orientation: landscape) and (max-device-width: 812px) {
+    height: 200vh !important;
+  }
 `;
 
 export const SerieContent = styled.div`
