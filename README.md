@@ -1,7 +1,3 @@
-<p align="center">
-http://edumoviee.epizy.com/
-</p>
-
 <h1 align="center">Sobre o projeto</h1>
 
 <p align="center">
